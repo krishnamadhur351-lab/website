@@ -1,7 +1,7 @@
 import { ArrowUpRight } from './Icons';
 
 interface NavbarProps {
-  onNavigate: (section: 'hero' | 'capabilities') => void;
+  onNavigate: (section: 'hero' | 'capabilities' | 'booking') => void;
 }
 
 export default function Navbar({ onNavigate }: NavbarProps) {
@@ -24,7 +24,7 @@ export default function Navbar({ onNavigate }: NavbarProps) {
             { label: 'Voyages', section: 'hero' as const },
             { label: 'Worlds', section: 'capabilities' as const },
             { label: 'Innovation', section: 'capabilities' as const },
-            { label: 'Plan Launch', section: 'capabilities' as const },
+            { label: 'Book Voyage', section: 'booking' as const },
           ].map((item, idx) => (
             <li key={idx}>
               <button
@@ -39,7 +39,7 @@ export default function Navbar({ onNavigate }: NavbarProps) {
 
         {/* Claim a Spot Button inside desktop nav pill */}
         <button
-          onClick={() => onNavigate('capabilities')}
+          onClick={() => onNavigate('booking')}
           className="bg-white text-black hover:bg-neutral-200 active:scale-95 transition-all font-body font-medium text-sm px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-1 cursor-pointer"
         >
           Claim a Spot
@@ -50,7 +50,7 @@ export default function Navbar({ onNavigate }: NavbarProps) {
       {/* Right: Balance Spacer for Desktop, or CTA button on Mobile */}
       <div className="flex md:hidden">
         <button
-          onClick={() => onNavigate('capabilities')}
+          onClick={() => onNavigate('booking')}
           className="bg-white text-black hover:bg-neutral-200 active:scale-95 transition-all font-body font-medium text-xs px-3.5 py-2 rounded-full whitespace-nowrap flex items-center gap-1 cursor-pointer shadow-lg"
         >
           Claim a Spot

@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import CapabilitiesSection from './components/CapabilitiesSection';
+import BookingSection from './components/BookingSection';
 
 // Suppress benign Framer Motion warnings that can clutter the console logs in dev mode
 if (typeof window !== 'undefined') {
@@ -14,7 +15,7 @@ if (typeof window !== 'undefined') {
 }
 
 export default function App() {
-  const handleNavigate = (section: 'hero' | 'capabilities') => {
+  const handleNavigate = (section: 'hero' | 'capabilities' | 'booking') => {
     const targetElement = document.getElementById(section);
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -28,12 +29,15 @@ export default function App() {
 
       {/* Hero viewport section */}
       <HeroSection
-        onStartVoyage={() => handleNavigate('capabilities')}
+        onStartVoyage={() => handleNavigate('booking')}
         onViewLiftoff={() => handleNavigate('capabilities')}
       />
 
       {/* Capabilities grid viewport section */}
       <CapabilitiesSection />
+
+      {/* Interactive Voyage Booking Section */}
+      <BookingSection />
       
       {/* Subtle minimalist footer */}
       <footer className="bg-black py-8 border-t border-white/5 text-center text-xs text-white/40 z-10 relative">
